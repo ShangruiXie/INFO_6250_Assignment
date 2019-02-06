@@ -1,0 +1,24 @@
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:7px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    width:15%;
+    float:left;
+    padding:5px;
+}
+#itemList {
+    float:left;
+    width: 83%;
+    padding:10px;
+    margin-left: 2px;
+    /*background: red;*/
+}
+#viewCart{
+    text-align: right;
+    /*background: lightpink;*/
+}
