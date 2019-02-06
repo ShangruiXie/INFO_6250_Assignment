@@ -17,8 +17,9 @@ buildNumber.properties
 
 # About IntelliJ
 *.iml
-*/.idea/
-*/out/
+**/.idea/
+**/out/
+
 
 # BlueJ files
 *.ctxt
