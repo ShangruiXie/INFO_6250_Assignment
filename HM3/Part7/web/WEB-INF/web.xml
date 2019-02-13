@@ -22,4 +22,28 @@
         <servlet-name>MovieServlet</servlet-name>
         <url-pattern>/MovieServlet</url-pattern>
     </servlet-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>movies</web-resource-name>
+            <url-pattern>/</url-pattern>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>manager-gui</role-name>
+            <role-name>manager-script</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-role>
+        <role-name>manager-gui</role-name>
+        <role-name>manager-script</role-name>
+    </security-role>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>Authorized Users Only</realm-name>
+    </login-config>
+
 </web-app>
