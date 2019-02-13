@@ -7,8 +7,16 @@
         <servlet-name>CartServlet</servlet-name>
         <servlet-class>com.neu.edu.servlet.CartServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NavServlet</servlet-name>
+        <servlet-class>com.neu.edu.servlet.NavServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/CartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NavServlet</servlet-name>
+        <url-pattern>/NavServlet</url-pattern>
     </servlet-mapping>
 </web-app>

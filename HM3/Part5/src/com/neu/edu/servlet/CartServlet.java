@@ -1,58 +1,64 @@
 package com.neu.edu.servlet;
 
-import com.neu.edu.dao.CartDao;
 import com.neu.edu.pojo.Product;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 
 //@WebServlet(name = "cart")
 public class CartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //add & remove products
-        CartDao cartDao = new CartDao();
-        String option = request.getParameter("option");
-        String[] items = request.getParameterValues("item");
-
-
-
-        if(option.equals("add")){
-            for(int i=0; i< items.length; i++){
-                String[] temp = items[i].split("$");
-                Product product = new Product(temp[0], Double.parseDouble(temp[1]));
-                cartDao.addProducts(product);
+        HttpSession session = request.getSession();
+        String[] product = request.getParameterValues("item");
+        List<Product> cartProducts = (List<Product>) session.getAttribute("cartProducts");
+        for(int i=0; i<product.length; i++){
+            Product p = new Product();
+            String[] temp = product[i].split(":");
+            p.setProductName(temp[0]);
+            p.setPrice(Double.parseDouble(temp[1]));
+            if(cartProducts.contains(p)){
+                cartProducts.remove(p);
             }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("./WEB-INF/jsp/addSucc.jsp");
-            dispatcher.forward(request, response);
-
-        }else if(option.equals("remove")){
-            for(int i=0; i< items.length; i++){
-                String[] temp = items[i].split("$");
-                String productName = temp[0];
-                cartDao.removeProducts(productName);
-            }
-            response.sendRedirect("./WEB-INF/jsp/Cart.jsp");
         }
-
+        session.setAttribute("cartProducts", cartProducts);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/cart.jsp");
+        dispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //display products list
+        List<Product> addProducts = new ArrayList<>();
+        List<Product> cartProducts;
         HttpSession session = request.getSession();
-        CartDao cartDao = new CartDao();
-        List<Product> productsList = cartDao.getProducts();
-        String[] products = productsList.toArray(new String[productsList.size()]);
-        session.setAttribute("products", products);
-        RequestDispatcher dispatcher = request.getRequestDispatcher(".WEB-INF/jsp/addSucc.jsp");
-        dispatcher.forward(request, response);
+        if(session.getAttribute("cartProducts") == null){
+            cartProducts = new ArrayList<>();
+        }else {
+            cartProducts = (List<Product>) session.getAttribute("cartProducts");
+        }
+        String[] product = request.getParameterValues("product");
+        for(int i=0; i<product.length; i++){
+            Product p = new Product();
+            String[] temp = product[i].split(":");
 
+//            for(int j=0; j<temp.length; j++)
+//                System.out.println(temp[j]);
+
+            p.setProductName(temp[0]);
+            p.setPrice(Double.parseDouble(temp[1]));
+            addProducts.add(p);
+            if(!cartProducts.contains(p))
+                cartProducts.add(p);
+        }
+        session.setAttribute("cartProducts", cartProducts);
+        request.setAttribute("addProducts", addProducts);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/success.jsp");
+        dispatcher.forward(request, response);
     }
 }
