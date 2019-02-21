@@ -19,7 +19,7 @@ buildNumber.properties
 *.iml
 **/.idea/
 **/out/
-**/lib/
+
 
 
 # BlueJ files
