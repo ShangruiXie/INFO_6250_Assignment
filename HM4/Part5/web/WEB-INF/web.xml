@@ -13,10 +13,15 @@
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.form</url-pattern>
+        <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
+    <!--<session-config>-->
+        <!--<session-timeout>-->
+            <!--30-->
+        <!--</session-timeout>-->
+    <!--</session-config>-->
 </web-app>
