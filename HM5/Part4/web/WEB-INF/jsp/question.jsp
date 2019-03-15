@@ -13,7 +13,7 @@
 </head>
 <body>
 <h2>Question <c:out value="${requestScope.question.number}"/>: <c:out value="${requestScope.question.question}"/></h2>
-<form action="" method="post">
+<form method="post">
     <input type="radio" name="answer" value="A"><c:out value="${requestScope.question.answer1}"/><br/>
     <input type="radio" name="answer" value="B"><c:out value="${requestScope.question.answer2}"/><br/>
     <input type="radio" name="answer" value="C"><c:out value="${requestScope.question.answer3}"/><br/>
