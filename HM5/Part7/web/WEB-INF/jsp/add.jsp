@@ -34,7 +34,7 @@
         Genre:<form:input path="genre"/>
         <form:errors path="genre" cssStyle="color: red"/><br/>
 
-        Year:<form:input path="year"/>
+        Year:<form:input path="year" type="number"/>
         <form:errors path="year" cssStyle="color: red"/><br/>
 
         <button type="submit">Add Movie</button>

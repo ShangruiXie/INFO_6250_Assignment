@@ -25,10 +25,10 @@
         Keyword: <form:input path="keyword"/>
         <form:errors path="keyword" cssStyle="color: red"/> <br/>
 
-        <form:radiobutton path="searchMethod" value="title" label="Search By Title"/>
-        <form:radiobutton path="searchMethod" value="actor" label="Search By Actor"/>
-        <form:radiobutton path="searchMethod" value="actress" label="Search By Actress"/>
-        <form:errors path="searchMethod" cssStyle="color: red"/>
+        <form:radiobutton path="searchMethod" value="title" label="Search By Title"/><br/>
+        <form:radiobutton path="searchMethod" value="actor" label="Search By Actor"/><br/>
+        <form:radiobutton path="searchMethod" value="actress" label="Search By Actress"/><br/>
+        <form:errors path="searchMethod" cssStyle="color: red"/><br/>
 
         <button type="submit">Search Movies</button>
     </form:form>

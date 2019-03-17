@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <% response.sendRedirect("index.htm"); %>
   </body>
 </html>

@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <!--<prop key="direction.htm">DirectionController</prop>-->
+                <prop key="addMovie.htm">AddMovieController</prop>
+                <prop key="searchMovie.htm">SearchMovieController</prop>
+                <prop key="index.htm">DirectionController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean name="savingValidator" class="com.neu.hm5.validator.SavingValidator" />
+    <bean name="searchingValidator" class="com.neu.hm5.validator.SearchingValidator"/>
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
+          p:basename="message" />
+
+
+    <bean name="AddMovieController" class="com.neu.hm5.controller.SavingController" >
+        <property name="validator"><ref bean="savingValidator"/> </property>
+    </bean>
+    <bean name="SearchMovieController" class="com.neu.hm5.controller.SearchingController" >
+        <property name="validator"><ref bean="searchingValidator"/> </property>
+    </bean>
+    <bean name="DirectionController" class="com.neu.hm5.controller.DirectionController"/>
+
 
 </beans>

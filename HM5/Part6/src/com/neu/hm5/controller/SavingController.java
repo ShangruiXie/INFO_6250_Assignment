@@ -22,7 +22,6 @@ public class SavingController extends SimpleFormController {
 
 
 
-
     @Override
     protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) throws Exception {
         HttpSession session = request.getSession();

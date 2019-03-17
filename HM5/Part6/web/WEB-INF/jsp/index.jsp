@@ -13,7 +13,7 @@
   <body>
   <h1>Welcome to our Movie Store</h1>
   <label>Please make your selection below</label>
-  <form method="get" action="direction.htm">
+  <form method="get" action="index.htm">
     <select name="selection">
       <option value="Browse">Browse Movies</option>
       <option value="Add">Add New Movie to Database</option>

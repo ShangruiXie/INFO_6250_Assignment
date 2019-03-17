@@ -23,7 +23,7 @@
     <form:radiobutton path="answer2" value="D"/>All of these<br/>
     <input type="hidden" name="correctAnswer2" value="D"/>
 
-    <form:errors path="answer2" cssStyle="color: #ff0000;"/>
+    <form:errors path="answer2" cssStyle="color: red;"/>
 
 
     <input type="submit" value="Previous" name="_target0"/>

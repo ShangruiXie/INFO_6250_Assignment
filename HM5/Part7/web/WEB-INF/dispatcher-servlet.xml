@@ -3,8 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
-
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"
@@ -17,6 +15,7 @@
                 <!--<prop key="direction.htm">DirectionController</prop>-->
                 <prop key="addMovie.htm">AddMovieController</prop>
                 <prop key="searchMovie.htm">SearchMovieController</prop>
+                <prop key="index.htm">DirectionController</prop>
             </props>
         </property>
     </bean>
@@ -33,6 +32,7 @@
     <bean name="SearchMovieController" class="com.neu.hm5.controller.SearchingController" >
         <property name="validator"><ref bean="searchingValidator"/> </property>
     </bean>
+    <bean name="DirectionController" class="com.neu.hm5.controller.DirectionController"/>
 
 
 </beans>
