@@ -12,7 +12,7 @@
     <bean name="/question.htm" class="com.neu.hm5.controller.AnswerController">
         <!--<property name="formView" value="loginform"/>-->
         <property name="successView" value="view"/>
-        <property name="cancelView" value="question1"/>
+        <property name="cancelView" value="start"/>
         <property name="commandClass" value="com.neu.hm5.pojo.Quiz"/>
         <property name="commandName" value="quiz"/>
         <property name="validator">
@@ -20,6 +20,7 @@
         </property>
         <property name="pages">
             <list>
+                <value>start</value>
                 <value>question1</value>
                 <value>question2</value>
                 <value>question3</value>

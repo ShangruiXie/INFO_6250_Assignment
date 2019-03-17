@@ -23,11 +23,11 @@
     <form:radiobutton path="answer2" value="D"/>All of these<br/>
     <input type="hidden" name="correctAnswer2" value="D"/>
 
-    <form:errors path="answer2" cssStyle="color: red;"/>
+    <form:errors path="answer2" cssStyle="color: red;"/><br/>
 
 
-    <input type="submit" value="Previous" name="_target0"/>
-    <input type="submit" value="Next" name="_target2"/>
+    <input type="submit" value="Previous" name="_target1"/>
+    <input type="submit" value="Next" name="_target3"/>
     <input type="submit" value="Cancel" name="_cancel"/>
 
 </form:form>
