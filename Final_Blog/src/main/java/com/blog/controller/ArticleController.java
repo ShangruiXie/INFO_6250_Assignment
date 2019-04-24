@@ -148,14 +148,18 @@ public class ArticleController {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 			String dateString = sdf.format(date); 
 			
-		
-			if(request.getParameter("articleId") != "") {
-				long articleId = Long.parseLong(request.getParameter("articleId"));
-				Article article = articleDao.get(articleId);
-				article.setContent(content);
-				article.setDate(dateString);
-				article.setTitle(title);
-				articleDao.update(article);
+			try {
+				if(request.getParameter("articleId") != "") {
+					long articleId = Long.parseLong(request.getParameter("articleId"));
+					Article article = articleDao.get(articleId);
+					article.setContent(content);
+					article.setDate(dateString);
+					article.setTitle(title);
+					articleDao.update(article);
+				}
+			}catch (Exception e) {
+				// TODO: handle exception
+				return new ModelAndView("redirect:edit?writer="+user.getUsername()+"&title="+title,"message","cannot edit this article");
 			}
 			return new ModelAndView("redirect:/bloglist?user="+user.getUsername()+"&page=1");
 		}else {

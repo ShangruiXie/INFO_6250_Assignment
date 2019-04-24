@@ -44,14 +44,18 @@
 				<table>
 					<td>|----<a href="/blog/article?writer=${article.user.username}&title=${article.title}">${article.title}</a></td>
 					<td>
-						<a href="/blog/delete?writer=${article.user.username}&title=${article.title}">
-				    		<button>Delete</button>
-						</a>
+						<c:if test="${blogUserId eq sessionScope.userId}">
+							<a href="/blog/delete?writer=${article.user.username}&title=${article.title}">
+					    		<button>Delete</button>
+							</a>
+						</c:if>
 					</td>
 					<td>
-						<a href="/blog/edit?writer=${article.user.username}&title=${article.title}">
-				    		<button>Edit</button>
-						</a>
+						<c:if test="${blogUserId eq sessionScope.userId}">
+							<a href="/blog/edit?writer=${article.user.username}&title=${article.title}">
+					    		<button>Edit</button>
+							</a>
+						</c:if>
 					</td>
 				</table>
 				
